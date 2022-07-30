@@ -2,8 +2,8 @@
   link: /
 - name: 關於我們
   link: /about
-# - name: 最新消息
-#   link: /news
+- name: 最新消息
+  link: /news
 # - name: 電子期刊
 #   link: /#
 # - name: 活動花絮

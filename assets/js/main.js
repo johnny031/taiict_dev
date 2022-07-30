@@ -91,27 +91,47 @@ $(document).ready(function () {
       return;
     },
     complete: function () {
+      if (note.length) {
+        $(".news_table").append(
+          `
+          <table>
+            <thead>
+              <tr>
+                <th>類別</th>
+                <th>日期</th>
+                <th>標題</th>
+              </tr>
+            </thead>
+            <tbody id="news_table_content"></tbody>
+          </table>
+        `
+        );
+        $(".message").html("");
+      } else {
+        $(".message").html("目前暫無最新消息")
+      }
+
       for (let i = 0; i < note.length; i++) {
         note[i][1] = tagToPlainText(note[i][1]);
         note[i][3] = tagToPlainText(note[i][3]);
-        $("#news_table").prepend(
+        $("#news_table_content").prepend(
           `
-        <tr>
-          <td class="text-center author_td">` +
-          note[i][1] +
-          `</td>
-          <td class="text-center date_td">` +
-          note[i][2].slice(0, 10) +
-          `</td>
-          <td class="title_td">
-            <a onClick="changeNewsContent(` +
-          note[i][0] +
-          `)">` +
-          note[i][3] +
-          `</a>
-          </td>
-        </tr>
-      `
+          <tr>
+            <td class="text-center author_td">` +
+            note[i][1] +
+            `</td>
+            <td class="text-center date_td">` +
+            note[i][2].slice(0, 10) +
+            `</td>
+            <td class="title_td">
+              <a onClick="changeNewsContent(` +
+            note[i][0] +
+            `)">` +
+            note[i][3] +
+            `</a>
+            </td>
+          </tr>
+        `
         );
       }
       //create pagination
