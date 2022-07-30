@@ -1,3 +1,4 @@
+
 let note;
 let current_note;
 function add_nav_white() {
@@ -14,7 +15,7 @@ function scrollToTop() {
 }
 function scrollToTable() {
   $("html, body").animate(
-    { scrollTop: $(".news_table").offset().top - 100 },
+    { scrollTop: $(".news_table_div").offset().top - 100 },
     0
   );
 }
@@ -92,14 +93,14 @@ $(document).ready(function () {
     },
     complete: function () {
       if (note.length) {
-        $(".news_table").append(
+        $(".news_table_div").append(
           `
-          <table>
+          <table class="news_table">
             <thead>
               <tr>
-                <th>類別</th>
-                <th>日期</th>
-                <th>標題</th>
+                <th class="news_table_head">類別</th>
+                <th class="news_table_head">日期</th>
+                <th class="news_table_head">標題</th>
               </tr>
             </thead>
             <tbody id="news_table_content"></tbody>
@@ -117,13 +118,13 @@ $(document).ready(function () {
         $("#news_table_content").prepend(
           `
           <tr>
-            <td class="text-center author_td">` +
+            <td class="news_table_data text-center author_td">` +
             note[i][1] +
             `</td>
-            <td class="text-center date_td">` +
+            <td class="news_table_data text-center date_td">` +
             note[i][2].slice(0, 10) +
             `</td>
-            <td class="title_td">
+            <td class="news_table_data title_td">
               <a onClick="changeNewsContent(` +
             note[i][0] +
             `)">` +
@@ -166,24 +167,24 @@ function changeNewsContent(newsId) {
   }
   $("#news-content").empty();
   $("#news-content").hide();
-  let file_tags = current_note[5].length == 0 ? "" : "<br /><div>附件：</div><ol>";
+  let file_tags = current_note[5].length == 0 ? "" : "<br /><div>附件：</div><ol class='attachment_list'>";
   for (let i = 0; i < current_note[5].length; i++) {
-    let file_tag = "<li><a href='https://taiict.herokuapp.com/download/" +
+    let file_tag = "<li class='attachment_list_item'><a href='https://taiict.herokuapp.com/download/" +
       current_note[5][i][0].toString() + "' target='_blank' download>" +
       current_note[5][i][1] + "</a></li>";
     file_tags += file_tag;
   }
   $("#news-content").append(
     `
-    <h2> ` +
+    <h2 class="post_title"> ` +
     current_note[3] +
     `</h2>
-    <p>` +
+    <p class="post_category">` +
     current_note[2] +
     ` - ` +
     current_note[1] +
     `</p>
-    <div class="content">` +
+    <div class="post_content">` +
     current_note[4] +
     `<br />` + file_tags + `</ol>
     </div>

@@ -1,6 +1,6 @@
 .news {
   padding-bottom: 50px;
-  h1 {
+  .news_title {
     font-family: "cwTeXFangSong", serif !important;
     color: #1a6584;
     font-weight: bold;
@@ -13,22 +13,22 @@
     text-align: center;
     font-size: 2rem;
   }
-  table,
-  th,
-  td {
+  .news_table,
+  .news_table_head,
+  .news_table_data {
     border: 1px solid gray;
     border-collapse: collapse;
   }
-  table {
+  .news_table {
     font-family: "Microsoft JhengHei";
     margin: 0 auto;
     font-size: 20px;
     width: 80vw;
   }
-  th {
+  .news_table_head {
     padding: 5px 10px;
   }
-  td {
+  .news_table_data {
     padding: 5px;
     a {
       color: #155c7a;
@@ -48,7 +48,7 @@
   .title_td {
     padding-left: 1em;
   }
-  th {
+  .news_table_head {
     background-color: rgb(224, 224, 224);
     text-align: center;
   }
@@ -57,10 +57,10 @@
     margin: 0 auto;
     padding: 0.8em 0 2.2em 0;
   }
-  .content ol {
+  .content .attachment_list {
     padding-left: 1.2em;
   }
-  .content li a {
+  .content .attachment_list_item a {
     text-decoration: none;
   }
   .pagination-container {
@@ -101,7 +101,7 @@
 @media only screen and (max-width: 930px) {
   .news {
     padding: 0 0 50px 0;
-    table {
+    .news_table {
       width: 100%;
       font-size: 15px;
     }
@@ -112,7 +112,7 @@
     #news-content {
       width: 100%;
     }
-    h1 {
+    .news_title {
       width: 70%;
     }
   }

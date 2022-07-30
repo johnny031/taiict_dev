@@ -1,34 +1,30 @@
 .posts {
   padding-bottom: 40px;
-  h1,
-  h2,
-  p {
+  .post_title,
+  .post_category {
     font-family: "Microsoft JhengHei";
   }
-  h1,
-  h2 {
+  .post_title {
     line-height: normal;
   }
-  p {
+  .post_category {
     padding: 7px 0;
     line-height: 30px;
   }
-  h1,
-  h2 {
+  .post_title {
     font-size: 30px;
     color: #316588;
   }
-  .content {
+  .post_content {
     font-size: 20px;
   }
 }
 @media only screen and (max-width: 930px) {
   .posts {
-    h1,
-    h2 {
+    .post_title {
       font-size: 25px;
     }
-    .content {
+    .post_content {
       font-size: 17px;
     }
   }
