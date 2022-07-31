@@ -85,10 +85,11 @@ $(document).ready(function () {
     },
     error: function () {
       this.tryCount++;
-      if (this.tryCount <= 4) {
+      if (this.tryCount <= 9) {
         $.ajax(this);
         return;
       }
+      $(".message").html("資料取得失敗，請重新整理頁面再試一次");
       return;
     },
     complete: function () {
