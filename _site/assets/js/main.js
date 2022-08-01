@@ -9,7 +9,7 @@ function rm_nav_white() {
 }
 function scrollToTop() {
   $("html, body").animate(
-    { scrollTop: $("#news-content").offset().top - 90 },
+    { scrollTop: $("#news-content").offset().top - 105 },
     0
   );
 }
@@ -118,7 +118,7 @@ $(document).ready(function () {
         note[i][3] = tagToPlainText(note[i][3]);
         $("#news_table_content").prepend(
           `
-          <tr>
+          <tr class="news_table_row">
             <td class="news_table_data text-center author_td">` +
             note[i][1] +
             `</td>
@@ -161,6 +161,7 @@ $("#organization a").click(function (event) {
 });
 
 function changeNewsContent(newsId) {
+  $("#news-content").show();
   for (let i = 0; i < note.length; i++) {
     if (note[i][0] == newsId) {
       current_note = note[i];
