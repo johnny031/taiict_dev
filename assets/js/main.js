@@ -78,7 +78,7 @@ $(document).ready(function () {
   //get News data via ajax
   $.ajax({
     method: "GET",
-    url: "https://taiict.herokuapp.com/json-data",
+    url: "https://taiict-backend.onrender.com/json-data",
     tryCount: 0,
     success: function (data) {
       note = data;
@@ -171,7 +171,7 @@ function changeNewsContent(newsId) {
   $("#news-content").hide();
   let file_tags = current_note[5].length == 0 ? "" : "<br /><div>附件：</div><ol class='attachment_list'>";
   for (let i = 0; i < current_note[5].length; i++) {
-    let file_tag = "<li class='attachment_list_item'><a href='https://taiict.herokuapp.com/download/" +
+    let file_tag = "<li class='attachment_list_item'><a href='https://taiict-backend.onrender.com//download/" +
       current_note[5][i][0].toString() + "' target='_blank' download>" +
       current_note[5][i][1] + "</a></li>";
     file_tags += file_tag;
