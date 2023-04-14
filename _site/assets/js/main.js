@@ -1,6 +1,7 @@
-
 let note;
 let current_note;
+let session_number = 1;
+
 function add_nav_white() {
   $(".navbar").addClass("nav_white");
 }
@@ -64,8 +65,8 @@ $(document).ready(function () {
   $route.html() === "about"
     ? $route.html("關於我們")
     : $route.html() === "news"
-      ? $route.html("最新消息")
-      : $route.html("公告");
+    ? $route.html("最新消息")
+    : $route.html("公告");
   //hide breadcrumb at home page
   if (window.location.pathname == "/") {
     $("#breadcrumb").hide();
@@ -110,7 +111,7 @@ $(document).ready(function () {
         );
         $(".message").html("");
       } else {
-        $(".message").html("目前暫無最新消息")
+        $(".message").html("目前暫無最新消息");
       }
 
       for (let i = 0; i < note.length; i++) {
@@ -169,26 +170,34 @@ function changeNewsContent(newsId) {
   }
   $("#news-content").empty();
   $("#news-content").hide();
-  let file_tags = current_note[5].length == 0 ? "" : "<br /><div>附件：</div><ol class='attachment_list'>";
+  let file_tags =
+    current_note[5].length == 0
+      ? ""
+      : "<br /><div>附件：</div><ol class='attachment_list'>";
   for (let i = 0; i < current_note[5].length; i++) {
-    let file_tag = "<li class='attachment_list_item'><a href='https://taiict-backend.onrender.com/download/" +
-      current_note[5][i][0].toString() + "' target='_blank' download>" +
-      current_note[5][i][1] + "</a></li>";
+    let file_tag =
+      "<li class='attachment_list_item'><a href='https://taiict-backend.onrender.com/download/" +
+      current_note[5][i][0].toString() +
+      "' target='_blank' download>" +
+      current_note[5][i][1] +
+      "</a></li>";
     file_tags += file_tag;
   }
   $("#news-content").append(
     `
     <h2 class="post_title"> ` +
-    current_note[3] +
-    `</h2>
+      current_note[3] +
+      `</h2>
     <p class="post_category">` +
-    current_note[2] +
-    ` - ` +
-    current_note[1] +
-    `</p>
+      current_note[2] +
+      ` - ` +
+      current_note[1] +
+      `</p>
     <div class="post_content">` +
-    current_note[4] +
-    `<br />` + file_tags + `</ol>
+      current_note[4] +
+      `<br />` +
+      file_tags +
+      `</ol>
     </div>
   `
   );
@@ -202,3 +211,13 @@ function tagToPlainText(code) {
     .replace(/>/g, "&gt;");
   return text;
 }
+
+$(".butn").on("click", function () {
+  let index = $(this).attr("class").slice(-1);
+  $(".session").hide();
+  $(`.session${index}`).fadeIn("slow");
+  $(".butn").removeClass("active-butn");
+  $(`.btn-session${index}`).addClass("active-butn");
+});
+
+$(".btn-session1").addClass("active-butn");

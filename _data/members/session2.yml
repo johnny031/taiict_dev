@@ -1,0 +1,55 @@
+directors:
+  - name: 蘇炫榮
+    position: 理事長
+    occupation: 教授
+    work_place: 國立臺灣大學電信工程學研究所
+  - name: 魏宏宇
+    position: 常務理事
+    occupation: 教授
+    work_place: 國立臺灣大學電信工程學研究所
+  - name: 林澤
+    position: 常務理事
+    occupation: 教授
+    work_place: 國立臺灣大學電信工程學研究所
+  - name: 李佳翰
+    position: 理事
+    occupation: 教授
+    work_place: 國立陽明交通大學電信工程學研究所
+  - name: 王蒞君
+    position: 理事
+    occupation: 教授
+    work_place: 國立陽明交通大學電信工程學研究所
+  - name: 洪樂文
+    position: 理事
+    occupation: 教授
+    work_place: 國立清華大學通訊所
+  - name: 謝欣霖
+    position: 理事
+    occupation: 教授
+    work_place: 國立臺北大學通訊工程學系
+  - name: 李志鵬
+    position: 理事
+    occupation: 處長
+    work_place: 國科會工程技術研究發展處
+  - name: 謝宏昀
+    position: 理事
+    occupation: 教授
+    work_place: 國立臺灣大學電信工程學研究所
+supervisors:
+  - name: 王志宇
+    position: 常務監事
+    occupation: 副研究員
+    work_place: 中研院資訊科技創新研究中心
+  - name: 楊得年
+    position: 監事
+    occupation: 研究員
+    work_place: 中研院資訊科學研究所
+  - name: 李宏毅
+    position: 監事
+    occupation: 副教授
+    work_place: 國立臺灣大學電信工程學研究所
+secretaries:
+  - name: 林士駿
+    position: 秘書長
+    occupation: 副教授
+    work_place: 國立臺灣大學電信工程學研究所

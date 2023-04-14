@@ -1,6 +1,5 @@
 #members {
   padding-bottom: 30px;
-  width: 65vw;
   h1 {
     color: #1a6584;
     font-family: "cwTeXFangSong", serif !important;
@@ -19,21 +18,83 @@
     justify-content: center;
   }
   .item {
-    padding: 0 50px;
+    padding: 0 40px;
   }
   h4 {
     color: rgb(99, 99, 99);
     margin: 40px 0 50px 0;
     font-family: "Noto Sans TC", sans-serif;
   }
-}
-@media only screen and (max-width: 1316px) {
-  #members {
-    width: 85vw;
+  .session-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0 6rem 0;
+  }
+
+  .session-nav::before {
+    content:"";
+    position:absolute;
+    background-color: #ebebeb;
+    width: 100%;
+    height: 1px;
+    top: calc(100% + 1.5rem);
+  }
+
+  .session {
+    display: none;
+  }
+
+  .session1 {
+    display: block;
+  }
+
+  .active-butn {
+    background-color: #e8f1f7;
+    position: relative;
+  }
+
+  .butn {
+    text-decoration: none !important;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.7em 2em;
+    border-radius: 5px;
+    color: black;
+    word-break: keep-all;
+  }
+
+  .butn:hover {
+    color: black;
+  }
+  
+  .add-left-right-margin {
+    margin: 0 3px;
   }
 }
-@media only screen and (max-width: 1011px) {
+
+@media only screen and (min-width: 1011px) {
   #members {
-    width: 96vw;
+    width: 90vw;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .session-nav {
+    flex-direction: column;
+  }
+  
+  .session-nav::before {
+    display: none;
+  }
+
+  .active-butn::before {
+    content: "";
+    position:absolute;
+    background-color: #1a6584;
+    width: 5px;
+    height: 100%;
+    top: 0;
+    left: calc(50% - 4em);
   }
 }

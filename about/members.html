@@ -3,42 +3,54 @@ title: 歷屆理監事
 ---
 
 <div id="members" class="container text-center">
-  <h1>理事</h1>
-  <p class="general-heading-line"></p>
-  <div id="container">
-    {% for member in site.data.members.session1.directors %}
-    <div class="item">
-      <div
-        class="member"
-        style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/director{{ forloop.index }}.jpg');"
-      ></div>
-      <h4>{{ member.position }} / {{ member.name }}</h4>
-    </div>
+  <div class="session-nav col-sm-2">
+    {% for session in site.data.members %}
+    <a class="butn btn-session{{forloop.index}}">第<span class="add-left-right-margin">{{ forloop.index }}</span>屆</a>
     {% endfor %}
   </div>
-  <h1>監事</h1>
-  <p class="general-heading-line"></p>
-  <div id="container">
-    {% for member in site.data.members.session1.supervisors %}
-    <div class="item">
-      <div
-        class="member"
-        style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/supervisor{{ forloop.index }}.jpg');"
-      ></div>
-      <h4>{{ member.position }} / {{ member.name }}</h4>
-    </div>
-    {% endfor %}
-  </div>
-  <h1>秘書</h1>
-  <p class="general-heading-line"></p>
-  <div id="container">
-    {% for member in site.data.members.session1.secretaries %}
-    <div class="item">
-      <div
-        class="member"
-        style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/secretary{{ forloop.index }}.jpg');"
-      ></div>
-      <h4>{{ member.position }} / {{ member.name }}</h4>
+  <div class="session-container col-sm-10">
+    {% for session in site.data.members %}
+    {% assign session_loop = forloop %}
+    <div class="session session{{ forloop.index }}">
+      <h1>理事</h1>
+      <p class="general-heading-line"></p>
+      <div id="container">
+        {% for member in session[1].directors %}
+        <div class="item">
+          <div
+            class="member"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/director{{ forloop.index }}.jpg');"
+          ></div>
+          <h4>{{ member.position }} / {{ member.name }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+      <h1>監事</h1>
+      <p class="general-heading-line"></p>
+      <div id="container">
+        {% for member in session[1].supervisors %}
+        <div class="item">
+          <div
+            class="member"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/supervisor{{ forloop.index }}.jpg');"
+          ></div>
+          <h4>{{ member.position }} / {{ member.name }}</h4>
+        </div>
+        {% endfor %}
+      </div>
+      <h1>秘書</h1>
+      <p class="general-heading-line"></p>
+      <div id="container">
+        {% for member in session[1].secretaries %}
+        <div class="item">
+          <div
+            class="member"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/secretary{{ forloop.index }}.jpg');"
+          ></div>
+          <h4>{{ member.position }} / {{ member.name }}</h4>
+        </div>
+        {% endfor %}
+      </div>
     </div>
     {% endfor %}
   </div>
