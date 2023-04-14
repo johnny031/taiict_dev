@@ -52,6 +52,8 @@
   .active-butn {
     background-color: #e8f1f7;
     position: relative;
+    pointer-events: none;
+    cursor: default;
   }
 
   .butn {
