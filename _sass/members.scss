@@ -30,15 +30,17 @@
     justify-content: center;
     align-items: center;
     margin: 4rem 0 6rem 0;
+    flex-wrap: wrap;
   }
 
-  .session-nav::before {
+  .session-container::before {
     content:"";
-    position:absolute;
+    position: absolute;
     background-color: #ebebeb;
     width: 100%;
     height: 1px;
-    top: calc(100% + 1.5rem);
+    top: -4.7rem;
+    left: 0;
   }
 
   .session {
@@ -49,18 +51,12 @@
     display: block;
   }
 
-  .active-butn {
-    background-color: #e8f1f7;
-    position: relative;
-    pointer-events: none;
-    cursor: default;
-  }
-
   .butn {
     text-decoration: none !important;
     cursor: pointer;
     font-size: 1.5rem;
     padding: 0.7em 2em;
+    margin: 0 0.4em 0.4em 0;
     border-radius: 5px;
     color: black;
     word-break: keep-all;
@@ -68,6 +64,14 @@
 
   .butn:hover {
     color: black;
+    background-color: #f2f6f9;
+  }
+
+  .active-butn {
+    background-color: #e8f1f7;
+    position: relative;
+    pointer-events: none;
+    cursor: default;
   }
   
   .add-left-right-margin {
@@ -82,21 +86,23 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .session-nav {
-    flex-direction: column;
-  }
-  
-  .session-nav::before {
-    display: none;
-  }
+  #members {
+    .session-nav {
+      flex-direction: column;
+    }
+    
+    .session-container::before {
+      display: none;
+    }
 
-  .active-butn::before {
-    content: "";
-    position:absolute;
-    background-color: #1a6584;
-    width: 5px;
-    height: 100%;
-    top: 0;
-    left: calc(50% - 4em);
+    .active-butn::before {
+      content: "";
+      position:absolute;
+      background-color: #1a6584;
+      width: 5px;
+      height: 100%;
+      top: 0;
+      left: calc(50% - 4em);
+    }
   }
 }
