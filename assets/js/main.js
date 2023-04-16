@@ -21,6 +21,30 @@ function scrollToTable() {
   );
 }
 
+//load all members images
+for (let j = 1; j <= 2; j++) {
+  $("<img/>")[0].src = `/../assets/img/members/session${j}/president1.jpg`;
+  for (let i = 1; i <= 2; i++) {
+    $(
+      "<img/>"
+    )[0].src = `/../assets/img/members/session${j}/executive_director${i}.jpg`;
+  }
+  for (let i = 1; i <= 6; i++) {
+    $("<img/>")[0].src = `/../assets/img/members/session${j}/director${i}.jpg`;
+  }
+
+  $(
+    "<img/>"
+  )[0].src = `/../assets/img/members/session${j}/executive_supervisor1.jpg`;
+
+  for (let i = 1; i <= 2; i++) {
+    $(
+      "<img/>"
+    )[0].src = `/../assets/img/members/session${j}/supervisor${i}.jpg`;
+  }
+  $("<img/>")[0].src = `/../assets/img/members/session${j}/secretary1.jpg`;
+}
+
 //animate background opacity on img loaded
 $("<img/>")
   .attr("src", "/../assets/img/test.png")
