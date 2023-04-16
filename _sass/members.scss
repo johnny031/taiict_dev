@@ -45,16 +45,16 @@
     word-break: keep-all;
   }
 
-  .butn:hover {
-    color: black;
-    background-color: #f2f6f9;
-  }
-
   .active-butn {
-    background-color: #e8f1f7;
+    background-color: #e8f1f7 !important;
     position: relative;
     pointer-events: none;
     cursor: default;
+  }
+
+  .butn:hover {
+    color: black;
+    background-color: #f2f6f9;
   }
 
   .add-left-right-margin {
