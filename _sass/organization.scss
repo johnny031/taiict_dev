@@ -1,5 +1,6 @@
+// .session-nav and .session-container settings are in members.scss
 #organization {
-  padding-bottom: 50px;
+  padding-bottom: 70px;
   h1 {
     color: #1a6584;
     font-family: "cwTeXFangSong", serif !important;
@@ -16,7 +17,7 @@
     color: white;
     background-image: linear-gradient(190deg, #90c1d6, #166080);
   }
-  a {
+  .name_butn {
     font-family: "Microsoft JhengHei";
     color: #3594bd;
     background-color: white;
@@ -57,7 +58,7 @@
       margin-bottom: 0;
     }
   }
-  a:hover {
+  .name_butn:hover {
     background-color: #71c5e9;
     color: white;
   }
@@ -106,7 +107,7 @@
       width: 92px;
       height: 36px;
     }
-    a {
+    .name_butn {
       width: 98px;
       height: 25px;
       h4 {
@@ -123,6 +124,14 @@
         width: 70px;
         height: 90px;
       }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #organization {
+    .general-heading-line {
+      margin: 20px auto 80px;
     }
   }
 }

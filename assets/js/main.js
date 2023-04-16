@@ -20,15 +20,7 @@ function scrollToTable() {
     0
   );
 }
-//load all members images
-for (let i = 1; i < 10; i++) {
-  $("<img/>")[0].src = "/../assets/img/members/session1/director" + i + ".jpg";
-}
-for (let i = 1; i < 4; i++) {
-  $("<img/>")[0].src =
-    "/../assets/img/members/session1/supervisor" + i + ".jpg";
-}
-$("<img/>")[0].src = "/../assets/img/members/session1/secretary1.jpg";
+
 //animate background opacity on img loaded
 $("<img/>")
   .attr("src", "/../assets/img/test.png")
@@ -212,12 +204,12 @@ function tagToPlainText(code) {
   return text;
 }
 
-$(".butn").on("click", function () {
+$(".session-nav .butn").on("click", function () {
   let index = $(this).attr("class").slice(-1);
-  $(".session").hide();
-  $(`.session${index}`).fadeIn("slow");
-  $(".butn").removeClass("active-butn");
-  $(`.btn-session${index}`).addClass("active-butn");
+  $(".session-container .session").hide();
+  $(`.session-container .session${index}`).fadeIn("slow");
+  $(".session-nav .butn").removeClass("active-butn");
+  $(`.session-nav .btn-session${index}`).addClass("active-butn");
 });
 
-$(".btn-session1").addClass("active-butn");
+$(".session-nav .btn-session1").addClass("active-butn");

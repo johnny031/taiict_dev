@@ -5,32 +5,23 @@ title: 組織架構
 <div id="organization" class="container text-center">
   <h1>組織架構</h1>
   <p class="general-heading-line"></p>
-  <div class="row structure">
-    <h3>理事長</h3>
-    {% for member in site.data.members.session1.directors limit:1 %}
-    <a><h4>{{ member.name }}</h4></a>
-    <div class="info">
-      <div
-        class="photo"
-        style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/director{{ forloop.index }}.jpg');"
-      ></div>
-      <h5>
-        - {{ member.occupation }} -<br />
-        {{ member.work_place }}
-      </h5>
-    </div>
+  <div class="session-nav col-sm-2">
+    {% for session in site.data.members %}
+    <a class="butn btn-session{{forloop.index}}">第<span class="add-left-right-margin">{{ forloop.index }}</span>屆</a>
     {% endfor %}
   </div>
-  <div class="row">
-    <div class="col-xs-4">
-      <div class="row paddingTop">
-        <h3>秘書長</h3>
-        {% for member in site.data.members.session1.secretaries %}
-        <a><h4>{{ member.name }}</h4></a>
+  <div class="session-container col-sm-10">
+    {% for session in site.data.members %}
+    {% assign session_loop = forloop %}
+    <div class="session session{{ forloop.index }}">
+      <div class="row structure">
+        <h3>理事長</h3>
+        {% for member in session[1].director.president %}
+        <a class="name_butn"><h4>{{ member.name }}</h4></a>
         <div class="info">
           <div
             class="photo"
-            style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/secretary{{ forloop.index }}.jpg');"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/president{{ forloop.index }}.jpg');"
           ></div>
           <h5>
             - {{ member.occupation }} -<br />
@@ -39,81 +30,99 @@ title: 組織架構
         </div>
         {% endfor %}
       </div>
-    </div>
-    <div class="col-xs-4">
-      <div class="row vertical2">
-        <h3>常務理事</h3>
-        {% for member in site.data.members.session1.directors limit:2 offset:1
-        %}
-        <a><h4>{{ member.name }}</h4></a>
-        <div class="info">
-          <div
-            class="photo"
-            style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/director{{ forloop.index | plus: 1 }}.jpg');"
-          ></div>
-          <h5>
-            - {{ member.occupation }} -<br />
-            {{ member.work_place }}
-          </h5>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="row vertical">
-        <div class="circle">
-          <h3>理事</h3>
-          {% for member in site.data.members.session1.directors limit:6 offset:3
-          %}
-          <a><h4>{{ member.name }}</h4></a>
-          <div class="info">
-            <div
-              class="photo"
-              style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/director{{ forloop.index | plus: 3 }}.jpg');"
-            ></div>
-            <h5>
-              - {{ member.occupation }} -<br />
-              {{ member.work_place }}
-            </h5>
+      <div class="row">
+        <div class="col-xs-4">
+          <div class="row paddingTop">
+            <h3>秘書長</h3>
+            {% for member in session[1].secretary %}
+            <a class="name_butn"><h4>{{ member.name }}</h4></a>
+            <div class="info">
+              <div
+                class="photo"
+                style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/secretary{{ forloop.index }}.jpg');"
+              ></div>
+              <h5>
+                - {{ member.occupation }} -<br />
+                {{ member.work_place }}
+              </h5>
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
         </div>
-      </div>
-    </div>
-    <div class="col-xs-4">
-      <div class="row paddingTop">
-        <h3>常務監事</h3>
-        {% for member in site.data.members.session1.supervisors limit:1 %}
-        <a><h4>{{ member.name }}</h4></a>
-        <div class="info">
-          <div
-            class="photo"
-            style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/supervisor{{ forloop.index }}.jpg');"
-          ></div>
-          <h5>
-            - {{ member.occupation }} -<br />
-            {{ member.work_place }}
-          </h5>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="row vertical">
-        <div class="circle">
-          <h3>監事</h3>
-          {% for member in site.data.members.session1.supervisors limit:2
-          offset:1 %}
-          <a><h4>{{ member.name }}</h4></a>
-          <div class="info">
-            <div
-              class="photo"
-              style="background-image: url('{{ site.baseurl }}/assets/img/members/session1/supervisor{{ forloop.index | plus: 1 }}.jpg');"
-            ></div>
-            <h5>
-              - {{ member.occupation }} -<br />
-              {{ member.work_place }}
-            </h5>
+        <div class="col-xs-4">
+          <div class="row vertical2">
+            <h3>常務理事</h3>
+            {% for member in session[1].director.executive_director %}
+            <a class="name_butn"><h4>{{ member.name }}</h4></a>
+            <div class="info">
+              <div
+                class="photo"
+                style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/executive_director{{ forloop.index }}.jpg');"
+              ></div>
+              <h5>
+                - {{ member.occupation }} -<br />
+                {{ member.work_place }}
+              </h5>
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
+          <div class="row vertical">
+            <div class="circle">
+              <h3>理事</h3>
+              {% for member in session[1].director.director %}
+              <a class="name_butn"><h4>{{ member.name }}</h4></a>
+              <div class="info">
+                <div
+                  class="photo"
+                  style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/director{{ forloop.index }}.jpg');"
+                ></div>
+                <h5>
+                  - {{ member.occupation }} -<br />
+                  {{ member.work_place }}
+                </h5>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="row paddingTop">
+            <h3>常務監事</h3>
+            {% for member in session[1].supervisor.executive_supervisor %}
+            <a class="name_butn"><h4>{{ member.name }}</h4></a>
+            <div class="info">
+              <div
+                class="photo"
+                style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/executive_supervisor{{ forloop.index }}.jpg');"
+              ></div>
+              <h5>
+                - {{ member.occupation }} -<br />
+                {{ member.work_place }}
+              </h5>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="row vertical">
+            <div class="circle">
+              <h3>監事</h3>
+              {% for member in session[1].supervisor.supervisor %}
+              <a class="name_butn"><h4>{{ member.name }}</h4></a>
+              <div class="info">
+                <div
+                  class="photo"
+                  style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/supervisor{{ forloop.index }}.jpg');"
+                ></div>
+                <h5>
+                  - {{ member.occupation }} -<br />
+                  {{ member.work_place }}
+                </h5>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    {% endfor %}
   </div>
 </div>

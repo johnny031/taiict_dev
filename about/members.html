@@ -15,7 +15,25 @@ title: 歷屆理監事
       <h1>理事</h1>
       <p class="general-heading-line"></p>
       <div id="container">
-        {% for member in session[1].directors %}
+        {% for member in session[1].director.president %}
+        <div class="item">
+          <div
+            class="member"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/president{{ forloop.index }}.jpg');"
+          ></div>
+          <h4>{{ member.position }} / {{ member.name }}</h4>
+        </div>
+        {% endfor %}
+        {% for member in session[1].director.executive_director %}
+        <div class="item">
+          <div
+            class="member"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/executive_director{{ forloop.index }}.jpg');"
+          ></div>
+          <h4>{{ member.position }} / {{ member.name }}</h4>
+        </div>
+        {% endfor %}
+        {% for member in session[1].director.director %}
         <div class="item">
           <div
             class="member"
@@ -28,7 +46,16 @@ title: 歷屆理監事
       <h1>監事</h1>
       <p class="general-heading-line"></p>
       <div id="container">
-        {% for member in session[1].supervisors %}
+        {% for member in session[1].supervisor.executive_supervisor %}
+        <div class="item">
+          <div
+            class="member"
+            style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/executive_supervisor{{ forloop.index }}.jpg');"
+          ></div>
+          <h4>{{ member.position }} / {{ member.name }}</h4>
+        </div>
+        {% endfor %}
+        {% for member in session[1].supervisor.supervisor %}
         <div class="item">
           <div
             class="member"
@@ -41,13 +68,13 @@ title: 歷屆理監事
       <h1>秘書</h1>
       <p class="general-heading-line"></p>
       <div id="container">
-        {% for member in session[1].secretaries %}
+        {% for member in session[1].secretary %}
         <div class="item">
           <div
             class="member"
             style="background-image: url('{{ site.baseurl }}/assets/img/members/session{{ session_loop.index }}/secretary{{ forloop.index }}.jpg');"
           ></div>
-          <h4>{{ member.position }} / {{ member.name }}</h4>
+          <h4>{{ member.position }} / {{ member.name }}</h4>  
         </div>
         {% endfor %}
       </div>
